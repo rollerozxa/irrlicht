@@ -23,9 +23,6 @@ namespace irr
 namespace video
 {
 
-//! creates a loader which is able to load windows bitmaps
-IImageLoader* createImageLoaderBMP();
-
 //! creates a loader which is able to load jpeg images
 IImageLoader* createImageLoaderJPG();
 
@@ -61,10 +58,6 @@ IImageLoader* createImageLoaderPPM();
 
 //! creates a loader which is able to load rgb images
 IImageLoader* createImageLoaderRGB();
-
-
-//! creates a writer which is able to save bmp images
-IImageWriter* createImageWriterBMP();
 
 //! creates a writer which is able to save jpg images
 IImageWriter* createImageWriterJPG();
@@ -161,10 +154,6 @@ CNullDriver::CNullDriver(io::IFileSystem* io, const core::dimension2d<u32>& scre
 #ifdef _IRR_COMPILE_WITH_JPG_LOADER_
 	SurfaceLoader.push_back(video::createImageLoaderJPG());
 #endif
-#ifdef _IRR_COMPILE_WITH_BMP_LOADER_
-	SurfaceLoader.push_back(video::createImageLoaderBMP());
-#endif
-
 
 #ifdef _IRR_COMPILE_WITH_PPM_WRITER_
 	SurfaceWriter.push_back(video::createImageWriterPPM());
@@ -184,10 +173,6 @@ CNullDriver::CNullDriver(io::IFileSystem* io, const core::dimension2d<u32>& scre
 #ifdef _IRR_COMPILE_WITH_PNG_WRITER_
 	SurfaceWriter.push_back(video::createImageWriterPNG());
 #endif
-#ifdef _IRR_COMPILE_WITH_BMP_WRITER_
-	SurfaceWriter.push_back(video::createImageWriterBMP());
-#endif
-
 
 	// set ExposedData to 0
 	memset((void*)&ExposedData, 0, sizeof(ExposedData));
