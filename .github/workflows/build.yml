@@ -6,7 +6,6 @@ on:
   - pull_request
 
 jobs:
-
   linux-gl:
     runs-on: ubuntu-latest
     container:
